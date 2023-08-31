@@ -60,7 +60,6 @@ export class PostTypeJitsi extends React.PureComponent<Props, State> {
             if (this.props.post) {
                 const props = this.props.post.props;
                 let meetingLink = props.meeting_link + '?jwt=' + (this.state.meetingJwt);
-                meetingLink += `#config.callDisplayName="${props.meeting_topic || props.default_meeting_topic}"`;
                 window.open(meetingLink, '_blank');
             }
         }
@@ -116,7 +115,7 @@ export class PostTypeJitsi extends React.PureComponent<Props, State> {
         let subtitle = (
             <FormattedMessage
                 id='jitsi.meeting-id'
-                defaultMessage='Meeting ID: '
+                defaultMessage='Link to connect: '
             />
         );
         if (props.meeting_personal) {
@@ -131,7 +130,7 @@ export class PostTypeJitsi extends React.PureComponent<Props, State> {
         let title = (
             <FormattedMessage
                 id='jitsi.default-title'
-                defaultMessage='Jitsi Meeting'
+                defaultMessage='KTalk Meeting'
             />
         );
         if (props.meeting_topic) {
